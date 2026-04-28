@@ -1,1 +1,6 @@
+com\mycompany\projetogerenciadordetarefas\util\SenhaUtil.class
+Sistema.class
+com\mycompany\projetogerenciadordetarefas\models\Usuario.class
+com\mycompany\projetogerenciadordetarefas\dao\UsuarioDAO.class
+com\mycompany\projetogerenciadordetarefas\util\Conexao.class
 com\mycompany\projetogerenciadordetarefas\Main.class

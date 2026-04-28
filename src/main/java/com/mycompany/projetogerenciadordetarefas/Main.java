@@ -1,9 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.projetogerenciadordetarefas;
-
+import com.mycompany.projetogerenciadordetarefas.models.Usuario;
+import com.mycompany.projetogerenciadordetarefas.util.Conexao;
+import com.mycompany.projetogerenciadordetarefas.dao.UsuarioDAO;
+import com.mycompany.projetogerenciadordetarefas.util.SenhaUtil;
 /**
  *
  * @author nicas
@@ -11,6 +10,13 @@ package com.mycompany.projetogerenciadordetarefas;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       
+        Usuario teste1 = new Usuario("teste3","teste3@gmail.com","1234");
+        
+       
+        UsuarioDAO dao = new UsuarioDAO();
+        dao.cadastrar(teste1);
+        
+        
     }
 }
