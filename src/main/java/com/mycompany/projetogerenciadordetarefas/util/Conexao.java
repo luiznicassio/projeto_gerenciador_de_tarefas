@@ -14,7 +14,10 @@ public class Conexao {
         try {
             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
             
+            /*
+             //Testar conexao
             System.out.println("Conexão com o banco de dados realizada com sucesso!");
+            */
             return conn;
         } catch (SQLException e) {
            
