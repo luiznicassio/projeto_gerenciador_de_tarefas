@@ -1,7 +1,7 @@
 package com.mycompany.projetogerenciadordetarefas;
-
-
-
+import com.mycompany.projetogerenciadordetarefas.models.Tarefa;
+import com.mycompany.projetogerenciadordetarefas.dao.TarefaDAO;
+import java.time.LocalDate;
 /**
  * Classe principal do sistema Gerenciador de Tarefas.
  * Responsável por iniciar a execução da aplicação.
@@ -10,9 +10,13 @@ package com.mycompany.projetogerenciadordetarefas;
  * Autor: Luiz Fernando
  * Data: 28/04/2026
  */
+
+
+
+
 public class Main {
     public static void main(String[] args) {
-        // Cria uma nova instância do sistema e inicia a aplicação
-         new Sistema();
+    //Cria uma nova instância do sistema e inicia a aplicação
+    new Sistema();
     }
 }

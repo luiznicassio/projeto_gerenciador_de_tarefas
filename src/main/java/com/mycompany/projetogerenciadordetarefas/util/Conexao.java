@@ -21,9 +21,7 @@ public class Conexao {
             return conn;
         } catch (SQLException e) {
            
-            System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
-            e.printStackTrace();
-            return null;
+              throw new RuntimeException("Erro ao conectar ao banco de dados", e);
         }
     }
  

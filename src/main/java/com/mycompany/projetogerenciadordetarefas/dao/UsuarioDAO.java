@@ -28,10 +28,16 @@ public class UsuarioDAO {
     public boolean cadastrar(Usuario user){
         String sql = "INSERT INTO usuarios(nome,email,senha) VALUES(?,?,?)";
         
-          boolean emailRes =  emailExiste(user.getEmail().trim());
-            if(emailRes){
-                 throw new IllegalArgumentException("Email ja cadastrado. Utilize outro");
-           }
+        
+            // CORREÇÃO AQUI: Passar o getEmail() em vez de getSenha()
+            boolean emailRes = emailExiste(user.getEmail().trim()); 
+    
+             if (emailRes) {
+                throw new IllegalArgumentException("Email ja cadastrado. Utilize outro");
+             }
+            if(user.getSenha().length()< 4){
+                 throw new IllegalArgumentException("A senha deve ter pelo menos 4 caracteres.");
+            }
             
         try{
             // Abre conexão com o banco
@@ -63,7 +69,6 @@ public class UsuarioDAO {
             return false;
         }
     }
-
     /**
      * Realiza o login do usuário verificando email e senha.
      * 
@@ -170,8 +175,8 @@ public class UsuarioDAO {
     * @param email Email do usuário
     * @return true se o email já existir, false caso contrário
     */
-    public boolean emailExiste(String email){
-        String sql = "select * from usuarios where email = ?";
+    protected boolean emailExiste(String email){
+        String sql = "select 1 from usuarios where email = ?";
         
         try{
             Connection conn = Conexao.conectar();
@@ -195,4 +200,52 @@ public class UsuarioDAO {
         }
        
     }
-}
+    
+    
+    
+    /**
+     * Atualiza os dados do usuário no banco de dados.
+    * Antes da atualização, verifica se o novo email informado já está sendo usado
+    * por outro usuário.
+    * 
+    * @param user Objeto com os novos dados do usuário
+    *  @return true se a atualização for realizada com sucesso, false caso contrário
+    */
+    public boolean atualizar(Usuario user) {
+     String sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id_usuarios = ?";
+    
+        // Busca os dados atuais do usuário no banco para comparar o email atual com o novo
+        Usuario usuarioAtual = buscarPorId(user.getId());
+
+        // Verifica se o email informado foi alterado
+        if (!usuarioAtual.getEmail().equalsIgnoreCase(user.getEmail().trim())) {
+        
+        // Caso o email tenha sido alterado, verifica se o novo email já está cadastrado
+        if (emailExiste(user.getEmail().trim())) {
+            throw new IllegalArgumentException("Este novo email já está sendo usado por outro usuário.");
+        }
+        }
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+        
+            // Define os novos valores no comando SQL
+        ps.setString(1, user.getNome().trim());
+        ps.setString(2, user.getEmail().trim());
+        ps.setInt(3, user.getId());
+
+            // Executa a atualização e retorna true se alguma linha foi alterada
+            int linhasAfetadas = ps.executeUpdate();
+            return linhasAfetadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao atualizar: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    
+    
+    //adicionar deletar
+    //adicionar mudar senha
+}//fim 

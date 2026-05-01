@@ -18,7 +18,13 @@ public class TelaHome extends JFrame {
         setLayout(new BorderLayout());
 
         Usuario usuario = Sessao.getUsuario();
-
+        
+        if(usuario == null){
+            new TelaLogin().setVisible(true);
+            dispose();
+            return;
+        }
+        
         lblBemVindo = new JLabel("Bem-vindo, " + usuario.getNome() +" || "+ usuario.getEmail(), SwingConstants.CENTER);
         add(lblBemVindo, BorderLayout.CENTER);
 

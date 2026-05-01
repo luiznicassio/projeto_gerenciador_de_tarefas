@@ -146,9 +146,6 @@ public class Usuario {
      * @param senha senha do usuário
      */
     public void setSenha(String senha){
-        if(senha.length() < 4){
-            throw new IllegalArgumentException("A senha deve ter pelo menos 4 caracteres.");
-        }
-        this.senha = senha;
+        this.senha = senha.trim();
     }
 }
