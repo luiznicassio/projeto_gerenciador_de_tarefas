@@ -1,3 +1,6 @@
+com\mycompany\projetogerenciadordetarefas\views\ModalNovaTarefa.class
+com\mycompany\projetogerenciadordetarefas\views\TelaHome$3$1.class
+com\mycompany\projetogerenciadordetarefas\views\TelaHome$4.class
 com\mycompany\projetogerenciadordetarefas\models\Usuario.class
 com\mycompany\projetogerenciadordetarefas\dao\UsuarioDAO.class
 com\mycompany\projetogerenciadordetarefas\util\Conexao.class
@@ -5,9 +8,9 @@ com\mycompany\projetogerenciadordetarefas\dao\TarefaDAO.class
 com\mycompany\projetogerenciadordetarefas\views\TelaHome.class
 com\mycompany\projetogerenciadordetarefas\models\Tarefa.class
 com\mycompany\projetogerenciadordetarefas\views\TelaHome$3.class
+com\mycompany\projetogerenciadordetarefas\views\ModalEditarTarefa.class
 com\mycompany\projetogerenciadordetarefas\views\TelaHome$2.class
 com\mycompany\projetogerenciadordetarefas\views\TelaLogin.class
-com\mycompany\projetogerenciadordetarefas\views\TelaHome$2$1.class
 com\mycompany\projetogerenciadordetarefas\util\SenhaUtil.class
 com\mycompany\projetogerenciadordetarefas\views\TelaHome$1.class
 com\mycompany\projetogerenciadordetarefas\Sistema.class

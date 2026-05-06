@@ -130,4 +130,53 @@ public class TarefaDAO {
         return false;
     }
     }
+    
+    // =========================
+    // EDITAR TAREFA POR ID 
+    // =========================
+    
+  public boolean atualizar(Tarefa t){
+    String sql = "UPDATE tarefas SET titulo = ?, descricao = ?, categorias_id = ?, data_vencimento = ?, prioridades_id = ? WHERE id_tarefas = ?";
+
+    try(Connection conn = Conexao.conectar();
+        PreparedStatement ps = conn.prepareStatement(sql)){
+
+        ps.setString(1, t.getTitulo());
+        ps.setString(2, t.getDescricao());
+        ps.setInt(3, t.getCategoriaId());
+
+        
+        ps.setDate(4, java.sql.Date.valueOf(t.getDataVencimento()));
+
+        ps.setInt(5, t.getPrioridadeId());
+        ps.setInt(6, t.getId());
+
+        return ps.executeUpdate() > 0;
+
+    } catch(SQLException e){
+        System.out.println("Erro ao atualizar tarefa: " + e.getMessage());
+        return false;
+    }
+    }
+  
+   // =========================
+   // EDITAR  
+   // =========================
+  
+     public boolean apagar(int id){
+        String sql = "delete from tarefas where id_tarefas = ?;";
+        
+        try(Connection conn = Conexao.conectar();
+        PreparedStatement ps = conn.prepareStatement(sql)){
+            
+           ps.setInt(1, id);
+           ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        
+        return true;
+    
+    }
 }
