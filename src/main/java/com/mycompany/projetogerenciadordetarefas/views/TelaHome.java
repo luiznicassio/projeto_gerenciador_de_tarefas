@@ -75,8 +75,12 @@ public class TelaHome extends JFrame {
         add(kanban, BorderLayout.CENTER);
         btnNovaTarefa.addActionListener(e -> {
             new ModalNovaTarefa(this).setVisible(true);
-            carregarTarefas(); // atualiza depois
-         });
+            carregarTarefas();
+        });
+
+        btnPerfil.addActionListener(e -> {
+            new ModalPerfil(this).setVisible(true); 
+        });
         carregarTarefas();
     }
 

@@ -7,6 +7,7 @@ com\mycompany\projetogerenciadordetarefas\util\Conexao.class
 com\mycompany\projetogerenciadordetarefas\dao\TarefaDAO.class
 com\mycompany\projetogerenciadordetarefas\views\TelaHome.class
 com\mycompany\projetogerenciadordetarefas\models\Tarefa.class
+com\mycompany\projetogerenciadordetarefas\views\ModalPerfil.class
 com\mycompany\projetogerenciadordetarefas\views\TelaCadastro.class
 com\mycompany\projetogerenciadordetarefas\views\TelaHome$3.class
 com\mycompany\projetogerenciadordetarefas\views\ModalEditarTarefa.class

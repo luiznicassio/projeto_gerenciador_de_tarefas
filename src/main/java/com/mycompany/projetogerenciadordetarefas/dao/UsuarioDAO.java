@@ -247,5 +247,28 @@ public class UsuarioDAO {
     
     
     //adicionar deletar
-    //adicionar mudar senha
+    /**
+     * Atualiza a senha do usuário no banco de dados.
+     * A nova senha é criptografada com BCrypt antes de ser salva.
+     *
+     * @param usuarioId ID do usuário
+     * @param novaSenha Nova senha em texto puro (será criptografada aqui)
+     * @return true se a atualização foi realizada com sucesso
+     */
+    public boolean atualizarSenha(int usuarioId, String novaSenha) {
+        String sql = "UPDATE usuarios SET senha = ? WHERE id_usuarios = ?";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, SenhaUtil.criptografarSenha(novaSenha));
+            ps.setInt(2, usuarioId);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao atualizar senha: " + e.getMessage());
+            return false;
+        }
+    }
 }//fim 
