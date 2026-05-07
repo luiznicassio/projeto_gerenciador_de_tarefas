@@ -98,6 +98,16 @@ public class TelaLogin extends JFrame {
         gbc.insets = new Insets(20, 0, 0, 0);
         painelDireito.add(btnEntrar, gbc);
 
+        // Link para cadastro
+        JLabel lblCadastro = new JLabel("<html><center>Não tem conta? <a href='#'>Cadastre-se</a></center></html>");
+        lblCadastro.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        lblCadastro.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCadastro.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        gbc.gridy = 6;
+        gbc.insets = new Insets(10, 0, 0, 0);
+        painelDireito.add(lblCadastro, gbc);
+
         painelPrincipal.add(painelEsquerdo);
         painelPrincipal.add(painelDireito);
 
@@ -105,6 +115,14 @@ public class TelaLogin extends JFrame {
         
         //fazer login
         btnEntrar.addActionListener(e -> fazerLogin());
+
+        // ir para cadastro
+        lblCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                new TelaCadastro().setVisible(true);
+                dispose();
+            }
+        });
     }
 
     private void fazerLogin() {

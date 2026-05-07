@@ -35,9 +35,9 @@ public class UsuarioDAO {
              if (emailRes) {
                 throw new IllegalArgumentException("Email ja cadastrado. Utilize outro");
              }
-            if(user.getSenha().length()< 4){
+             if(user.getSenha().length()< 4){
                  throw new IllegalArgumentException("A senha deve ter pelo menos 4 caracteres.");
-            }
+             }
             
         try{
             // Abre conexão com o banco

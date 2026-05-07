@@ -122,7 +122,7 @@ public class Usuario {
         if(email.isEmpty()){
             throw new IllegalArgumentException("O email não pode estar vazio.");
         }
-        //Verifica se tem @
+        //Verifica se tem @ Melhorar mais tarde 
         if(!email.contains("@")){
             throw new IllegalArgumentException("Email inválido");
         }

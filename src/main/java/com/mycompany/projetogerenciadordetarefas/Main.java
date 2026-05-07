@@ -1,6 +1,8 @@
 package com.mycompany.projetogerenciadordetarefas;
 import com.mycompany.projetogerenciadordetarefas.models.Tarefa;
 import com.mycompany.projetogerenciadordetarefas.dao.TarefaDAO;
+import com.mycompany.projetogerenciadordetarefas.dao.UsuarioDAO;
+import com.mycompany.projetogerenciadordetarefas.models.Usuario;
 import java.util.List;
 import java.time.LocalDate;
 /**
@@ -13,6 +15,6 @@ import java.time.LocalDate;
  */
 public class Main {
     public static void main(String[] args) {
-        new Sistema(); 
+        new Sistema();
     }
 }
