@@ -97,7 +97,7 @@ public class UsuarioDAO {
                     Usuario user = new Usuario();
 
                     // Preenche os dados do usuário
-                    user.setId(rs.getInt("id_usuarios"));
+                    user.setId(rs.getInt("id_usuario"));
                     user.setNome(rs.getString("nome"));
                     user.setEmail(rs.getString("email"));
                     
@@ -131,7 +131,7 @@ public class UsuarioDAO {
      */
     public Usuario buscarPorId(int id) {
 
-        String sql = "SELECT * FROM usuarios WHERE id_usuarios = ?";
+        String sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
 
         try {
             // Abre conexão com o banco
@@ -146,7 +146,7 @@ public class UsuarioDAO {
             if(rs.next()){
                 Usuario user = new Usuario();
 
-                user.setId(rs.getInt("id_usuarios"));
+                user.setId(rs.getInt("id_usuario"));
                 user.setNome(rs.getString("nome"));
                 user.setEmail(rs.getString("email"));
                 user.setSenha(rs.getString("senha"));
@@ -212,7 +212,7 @@ public class UsuarioDAO {
     *  @return true se a atualização for realizada com sucesso, false caso contrário
     */
     public boolean atualizar(Usuario user) {
-     String sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id_usuarios = ?";
+     String sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id_usuario = ?";
     
         // Busca os dados atuais do usuário no banco para comparar o email atual com o novo
         Usuario usuarioAtual = buscarPorId(user.getId());
@@ -256,7 +256,7 @@ public class UsuarioDAO {
      * @return true se a atualização foi realizada com sucesso
      */
     public boolean atualizarSenha(int usuarioId, String novaSenha) {
-        String sql = "UPDATE usuarios SET senha = ? WHERE id_usuarios = ?";
+        String sql = "UPDATE usuarios SET senha = ? WHERE id_usuario = ?";
 
         try (Connection conn = Conexao.conectar();
              PreparedStatement ps = conn.prepareStatement(sql)) {

@@ -5,6 +5,10 @@ import com.mycompany.projetogerenciadordetarefas.dao.UsuarioDAO;
 import com.mycompany.projetogerenciadordetarefas.models.Usuario;
 import java.util.List;
 import java.time.LocalDate;
+import com.mycompany.projetogerenciadordetarefas.models.Projeto;
+import com.mycompany.projetogerenciadordetarefas.dao.ProjetoDAO;
+import java.sql.SQLException;
+
 /**
  * Classe principal do sistema Gerenciador de Tarefas.
  * Responsável por iniciar a execução da aplicação.
@@ -15,6 +19,17 @@ import java.time.LocalDate;
  */
 public class Main {
     public static void main(String[] args) {
-        new Sistema();
+       new Sistema();
+      
+      
+     try{
+       
+         
+        
+        
+      }catch(Exception e){
+           System.out.println("erro: "+e.getMessage());
+        }
+      
     }
 }
